@@ -177,7 +177,11 @@
       "taxes_included": "Taxes included.",
       "duties_included": "Duties included.",
       "duties_and_taxes_included": "Duties and taxes included.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout."
+      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout.",
+      "back_in_stock_message": {
+        "out_of_stock": "Currently out of stock — check back soon!",
+        "low_stock": "Only {{ count }} left in stock — order soon!"
+      }
     },
     "modal": {
       "label": "Media gallery"

@@ -19,7 +19,7 @@
         "subheading": "Discover our latest products and offers.",
         "button_label": "Shop Now",
         "button_link": "shopify://collections",
-        "text_alignment": "right"
+        "text_alignment": "left"
       }
     },
     "image_banner": {

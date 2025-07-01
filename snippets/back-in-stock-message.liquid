@@ -1,0 +1,36 @@
+<style>
+  .back-in-stock-message--low {
+    color: #e68a00;
+    font-weight: bold;
+  }
+  .back-in-stock-message--out {
+    color: #d32f2f;
+    font-weight: bold;
+  }
+</style>
+{%- assign variant = product.selected_or_first_available_variant -%}
+{%- assign show_message = false -%}
+{%- assign message = '' -%}
+{%- assign message_class = '' -%}
+{%- if variant.inventory_management == 'shopify' -%}
+  {%- if variant.inventory_quantity > 0 -%}
+    {%- if variant.inventory_quantity < 5 -%}
+      {%- assign show_message = true -%}
+      {%- assign message = 'products.product.back_in_stock_message.low_stock' | t: count: variant.inventory_quantity -%}
+      {%- assign message_class = 'back-in-stock-message--low' -%}
+    {%- endif -%}
+  {%- else -%}
+    {%- assign show_message = true -%}
+    {%- assign message = 'products.product.back_in_stock_message.out_of_stock' | t -%}
+    {%- assign message_class = 'back-in-stock-message--out' -%}
+  {%- endif -%}
+{%- endif -%}
+<div
+  id="BackInStockMessage-{{ section_id }}"
+  class="back-in-stock-message {{ message_class }}"
+  style="margin-top: 1em;"
+>
+  {%- if show_message -%}
+    {{ message }}
+  {%- endif -%}
+</div>

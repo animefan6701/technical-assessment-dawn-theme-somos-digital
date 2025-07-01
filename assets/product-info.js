@@ -219,6 +219,8 @@ if (!customElements.get('product-info')) {
           input.value = variantId ?? '';
           input.dispatchEvent(new Event('change', { bubbles: true }));
         });
+
+        this.updateBackInStockMessage(variantId);
       }
 
       updateURL(url, variantId) {
@@ -410,6 +412,44 @@ if (!customElements.get('product-info')) {
 
       get sectionId() {
         return this.dataset.originalSection || this.dataset.section;
+      }
+
+      updateBackInStockMessage(variantId) {
+        const sectionId = this.sectionId;
+        const messageContainer = this.querySelector(`#BackInStockMessage-${sectionId}`);
+        if (!messageContainer) return;
+        let message = '';
+        let variant = null;
+
+        const productJsonElement = document.getElementById('product-json');
+        const productJson = JSON.parse(productJsonElement.textContent);
+        const variants = productJson.variants;
+
+        variant = variants.find((v) => v.id == variantId);
+
+        // Remove previous state classes
+        messageContainer.classList.remove('back-in-stock-message--low', 'back-in-stock-message--out');
+
+        if (!variant) {
+          messageContainer.textContent = '';
+          return;
+        }
+        if (variant.inventory_management === 'shopify') {
+          if (variant.inventory_quantity > 0) {
+            if (variant.inventory_quantity < 5) {
+              message = `Only ${variant.inventory_quantity} left in stock — order soon!`;
+              messageContainer.classList.add('back-in-stock-message--low');
+            } else {
+              message = '';
+            }
+          } else {
+            message = 'Currently out of stock — check back soon!';
+            messageContainer.classList.add('back-in-stock-message--out');
+          }
+        } else {
+          message = '';
+        }
+        messageContainer.textContent = message;
       }
     }
   );

@@ -17,8 +17,8 @@
         "background_image_mobile": "shopify://shop_images/Main.jpg",
         "headline": "Welcome to Our Store!",
         "subheading": "Discover our latest products and offers.",
-        "button_label": "Shop Now",
-        "button_link": "shopify://collections",
+        "button_label": "Test Product",
+        "button_link": "shopify://products/test-snowboard",
         "text_alignment": "left"
       }
     },

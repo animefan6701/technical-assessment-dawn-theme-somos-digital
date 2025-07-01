@@ -3397,9 +3397,40 @@
         "name": "Collapsible content"
       }
     },
-    "back_in_stock_message": {
-      "out_of_stock": "Currently out of stock — check back soon!",
-      "low_stock": "Only {{ count }} left in stock — order soon!"
+    "featured-banner": {
+      "name": "Featured Banner",
+      "settings": {
+        "background_image": {
+          "label": "Background image"
+        },
+        "headline": {
+          "label": "Headline text",
+          "default": "Welcome to Our Store!"
+        },
+        "subheading": {
+          "label": "Subheading text",
+          "default": "Discover our latest products and offers."
+        },
+        "button_label": {
+          "label": "Button label",
+          "default": "Shop Now"
+        },
+        "button_link": {
+          "label": "Button link"
+        },
+        "text_alignment": {
+          "options__1": { "label": "Left" },
+          "options__2": { "label": "Center" },
+          "options__3": { "label": "Right" },
+          "label": "Text alignment"
+        },
+        "background_image_mobile": {
+          "label": "Mobile background image"
+        }
+      },
+      "presets": {
+        "name": "Featured Banner"
+      }
     }
   }
 }

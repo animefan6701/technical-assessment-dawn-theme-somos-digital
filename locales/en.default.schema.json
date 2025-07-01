@@ -931,7 +931,7 @@
               "default": "Share"
             },
             "featured_image_info": {
-              "content": "If you include a link in social media posts, the page’s featured image will be shown as the preview image. [Learn more](https://help.shopify.com/manual/online-store/images/showing-social-media-thumbnail-images)"
+              "content": "If you include a link in social media posts, the page's featured image will be shown as the preview image. [Learn more](https://help.shopify.com/manual/online-store/images/showing-social-media-thumbnail-images)"
             },
             "title_info": {
               "content": "A store title and description are included with the preview image. [Learn more](https://help.shopify.com/manual/promoting-marketing/seo/adding-keywords#set-a-title-and-description-for-your-online-store)"
@@ -968,7 +968,7 @@
           }
         },
         "hide_variants": {
-          "label": "Hide unselected variants’ media on desktop"
+          "label": "Hide unselected variants' media on desktop"
         },
         "enable_video_looping": {
           "label": "Loop video"
@@ -3395,6 +3395,41 @@
       },
       "presets": {
         "name": "Collapsible content"
+      }
+    },
+    "featured-banner": {
+      "name": "Featured Banner",
+      "settings": {
+        "background_image": {
+          "label": "Background image"
+        },
+        "headline": {
+          "label": "Headline text",
+          "default": "Welcome to Our Store!"
+        },
+        "subheading": {
+          "label": "Subheading text",
+          "default": "Discover our latest products and offers."
+        },
+        "button_label": {
+          "label": "Button label",
+          "default": "Shop Now"
+        },
+        "button_link": {
+          "label": "Button link"
+        },
+        "text_alignment": {
+          "options__1": { "label": "Left" },
+          "options__2": { "label": "Center" },
+          "options__3": { "label": "Right" },
+          "label": "Text alignment"
+        },
+        "background_image_mobile": {
+          "label": "Mobile background image"
+        }
+      },
+      "presets": {
+        "name": "Featured Banner"
       }
     }
   }

@@ -1,0 +1,101 @@
+{{ 'section-featured-banner.css' | asset_url | stylesheet_tag }}
+
+<div class="featured-banner">
+  <div class="featured-banner__body featured-banner__body--align-{{ section.settings.text_alignment }}">
+    <div class="page-width featured-banner__body-container">
+      {% if section.settings.headline != blank %}
+        <div class="featured-banner__headline">{{ section.settings.headline }}</div>
+      {% endif %}
+      {% if section.settings.subheading != blank %}
+        <div class="featured-banner__subheading">{{ section.settings.subheading }}</div>
+      {% endif %}
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="featured-banner__button button">
+          {{- section.settings.button_label -}}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+  <div class="featured-banner__media">
+    <picture>
+      {% if section.settings.background_image_mobile != blank %}
+        <source
+          srcset="{{ section.settings.background_image_mobile | image_url: width: 800 }}"
+          media="(max-width: 749px)"
+        >
+      {% endif %}
+      {% if section.settings.background_image != blank %}
+        <img
+          src="{{ section.settings.background_image | image_url: width: 1500 }}"
+          alt=""
+          class="featured-banner__image"
+          loading="lazy"
+          width="{{ section.settings.background_image.width | default: 1500 }}"
+          height="{{ section.settings.background_image.height | default: 600 }}"
+        >
+      {% else %}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg featured-banner__image' }}
+      {% endif %}
+    </picture>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.featured-banner.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "t:sections.featured-banner.settings.background_image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_mobile",
+      "label": "t:sections.featured-banner.settings.background_image_mobile.label"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "t:sections.featured-banner.settings.headline.label",
+      "default": "t:sections.featured-banner.settings.headline.default"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.featured-banner.settings.subheading.label",
+      "default": "t:sections.featured-banner.settings.subheading.default"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.featured-banner.settings.button_label.label",
+      "default": "t:sections.featured-banner.settings.button_label.default"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.featured-banner.settings.button_link.label"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "t:sections.featured-banner.settings.text_alignment.label",
+      "options": [
+        { "value": "left", "label": "t:sections.featured-banner.settings.text_alignment.options__1.label" },
+        { "value": "center", "label": "t:sections.featured-banner.settings.text_alignment.options__2.label" },
+        { "value": "right", "label": "t:sections.featured-banner.settings.text_alignment.options__3.label" }
+      ],
+      "default": "center"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.featured-banner.presets.name",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
